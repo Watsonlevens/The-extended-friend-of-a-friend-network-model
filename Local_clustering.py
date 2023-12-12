@@ -27,13 +27,13 @@ def initial_Friend_of_a_friend_model(Gi,m0):   #Initial graph
     return Gi
      
    
-def Friend_of_a_friend_model(G,N,m0):                
+def Friend_of_a_friend_model(G,N,m0):                 # This is the special case where the target node is always the same
     for source in range(m0, N): # Start connection from m0 node and stop at N
         #################################################################################################################                    
         # Step1. Pick one node randomly and make connection.
         # ########################################################################################################################                                                           
         nodes = [nod for nod in G.nodes()]
-        #node = random.choice(nodes)
+        #node = random.choice(nodes) 
         node = 0
 
         neighbours = [nbr for nbr in G.neighbors(node) # neighborhoods are nodes followed by target
@@ -52,7 +52,7 @@ def Friend_of_a_friend_model(G,N,m0):
             if q >random.random():  
                G.add_edge(source, nbr) # Add edge 
                num_nbrs = num_nbrs + 1
-        local_clustering(G,node)
+        local_clustering(G,node)  ## Tiffany: This function should be not be here. It was defined a bit later.
     return G 
     
 ####  Display the graph    
