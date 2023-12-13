@@ -136,6 +136,6 @@ q=1
 N=1000
 G= Friend_of_a_friend_model(n_q,q,N) 
 # displayfriendoffriend(G)
-# plot_triangleshistogram(G,q=0.5,N=100)
-# predict_probability_q(G,q=0.5,N=500)
+# plot_triangleshistogram(G,q,N)
+# predict_probability_q(G,q,N)
 plot_numerical_theoretical_triangles(G,q,n_q,N)
