@@ -48,7 +48,7 @@ def Friend_of_a_friend_model(n_q,q,N):
     
 
 
-### The function for for simulating the clustering coefficient
+### The function for simulating the clustering coefficient
 ################################################################################
 @py_random_state(2)
 @not_implemented_for('directed') 
