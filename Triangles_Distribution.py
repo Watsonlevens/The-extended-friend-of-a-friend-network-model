@@ -9,7 +9,7 @@ import networkx as nx
 import random
 import matplotlib.pyplot as plt
   
-def Friend_of_a_friend_model(n_q=1,q=1,N=30): 
+def Friend_of_a_friend_model(n_q,q,N): 
     '''
     n_q : Number of neighbours
     q : Probability of a new node to attach to neighbouring nodes
@@ -67,10 +67,10 @@ def displayfriendoffriend(G):
     return G 
 
 
-def plot_triangleshistogram(G,q=0.4,n_q=1,N=30):
+def plot_triangleshistogram(G,q,n_q,N):
     number_triangles = []
     for i in range(100):
-        G= Friend_of_a_friend_model(n_q=n_q,q=q,N=N)  
+        G= Friend_of_a_friend_model(n_q,q,N)  
         # Calculate the number of triangles for each node
         # Count triangles in the graph
         trianglesum = sum(nx.triangles(G).values()) # sums up the values in a dictionary. Each triangle is counted as a triangle for each of the three nodes. Thus the sum of the values should be 3 times the number of triangles. 
@@ -90,15 +90,15 @@ def plot_triangleshistogram(G,q=0.4,n_q=1,N=30):
     plt.show()
 
 
-def predict_probability_q(G,q=0.5,N=30):
-    G= Friend_of_a_friend_model(n_q=1,q=q,N=N) 
+def predict_probability_q(G,q,N):
+    G= Friend_of_a_friend_model(n_q,q,N) 
     trianglesum = sum(nx.triangles(G).values()) # sums up the values in a dictionary. Each triangle is counted as a triangle for each of the three nodes. Thus the sum of the values should be 3 times the number of triangles. 
     num_triang = trianglesum/3  # Gives total triangles in a network     
     predicted_q = num_triang/N
     return predicted_q
 
 
-def plot_numerical_theoretical_triangles(G,q=1,n_q=1,N=30):
+def plot_numerical_theoretical_triangles(G,q,n_q,N):
     Theoretical_traingles = []
     number_triangles = []
     #Random probabilities
@@ -107,7 +107,7 @@ def plot_numerical_theoretical_triangles(G,q=1,n_q=1,N=30):
     # openfile = open('probs.pkl', 'rb') 
     # prob = pickle.load(openfile)
     for q in probs:
-        G = Friend_of_a_friend_model(n_q=n_q,q=q,N=N)
+        G = Friend_of_a_friend_model(n_q,q,N)
         # Calculate the number of triangles for each node
         # Count triangles in the graph
         trianglesum = sum(nx.triangles(G).values()) # sums up the values in a dictionary. Each triangle is counted as a triangle for each of the three nodes. Thus the sum of the values should be 3 times the number of triangles. 
@@ -131,8 +131,11 @@ def plot_numerical_theoretical_triangles(G,q=1,n_q=1,N=30):
 
 
 ## Usage of the functions
-G= Friend_of_a_friend_model(n_q=1,q=1,N=50) 
+n_q=1
+q=1
+N=1000
+G= Friend_of_a_friend_model(n_q,q,N) 
 # displayfriendoffriend(G)
 # plot_triangleshistogram(G,q=0.5,N=100)
 # predict_probability_q(G,q=0.5,N=500)
-plot_numerical_theoretical_triangles(G,q=1,n_q=1,N=1000)
+plot_numerical_theoretical_triangles(G,q,n_q,N)
