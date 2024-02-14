@@ -1,2 +1,4 @@
-# The-extended-friend-of-a-friend-network-model
-We study a generalised version of the `friend of a friend' model of network growth.
+# Properties of the friend of a friend model of network growth
+This repository contains code and analysis associated with a study on social network generation. We investigate a model where a network forms based on a 'friend of a friend' approach. In this model, each new node initially connects to a randomly selected target node and then attaches to a variable number of randomly chosen neighbours, or "friends," with a probability q. We specifically examine scenarios where the attachment can occur to all neighbours of the chosen target node and when the neighbours are finite.
+
+Regarding the code and data: The code comprises implementations and scripts used for simulations and analysis. To generate Figure 1, one must execute the code to produce the datasets before plotting the figure. The code files labeled as Fig1_Panel_A__BlueLine, Fig1_Panel_A__RedLine, Fig1_Panel_B__BlueLine, Fig1_Panel_B__RedLine, Fig1_Panel_C__Redline, and Fig1_Panel_C_BlueLine are responsible for generating and saving the data. Figure 1 is then plotted using the code file named Fig1_ploting, which utilizes the data generated and saved in the same directory. To create Figures 2 and 3, one needs to run the code files named Fig2 and Fig3, respectively. 
